@@ -6,20 +6,19 @@
 <h3 class="m-5">My lists</h3>
 <div class="container">
   <div class="row">
- <% @lists.each do |list| %>
-  <div class="col-4">
-   <%= list.name.capitalize %>
-   <div class="position-relative">
-    <% if list.photo.attached? %>
-        <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-   </div>
-   <div class="position-absolute text-center text-white" style="top: 80%; left: 20%; transform: translate(-50%, -50%);">
-        <%= link_to "Show this list", list %>
+    <% @lists.each do |list| %>
+      <div class="col-4">
+        <%= list.name.capitalize %>
+        <div class="position-relative">
+          <% if list.photo.attached? %>
+            <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="position-absolute text-center text-white" style="top: 80%; left: 20%; transform: translate(-50%, -50%);">
+          <%= link_to "Show this list", list %>
+        </div>
       </div>
-    </div>
-  </div>
-<%= link_to "New list", new_list_path %>
     <% end %>
-</div>
-<% end %>
+    <%= link_to "New list", new_list_path %>
+  </div>
 </div>
